@@ -1,0 +1,16 @@
+// Place your key bindings in this file to overwrite the defaults
+// eclipse习惯
+[
+    { "key": "alt+/",  "command": "editor.action.triggerSuggest","when": "editorTextFocus" },
+    { "key": "ctrl+alt+down","command": "editor.action.copyLinesDownAction", "when": "editorTextFocus" },
+    { "key": "ctrl+alt+up", "command": "editor.action.copyLinesUpAction", "when": "editorTextFocus" },
+    { "key": "ctrl+shift+c","command": "editor.action.commentLine","when": "editorTextFocus" },
+    { "key": "ctrl+d","command": "editor.action.deleteLines","when": "editorTextFocus" },
+    { "key": "ctrl+k","command": "editor.action.addSelectionToNextFindMatch","when": "editorFocus"},
+    { "key": "ctrl+shift+f","command": "editor.action.format","when": "editorTextFocus"},
+    { "key": "ctrl+shift+x","command": "editor.action.transformToUppercase","when": "editorTextFocus"},
+    { "key": "ctrl+shift+y","command": "editor.action.transformToLowercase","when": "editorTextFocus"},
+    { "key": "ctrl+shift+alt+x","command": "workbench.view.extensions" },
+    { "key": "ctrl+shift+alt+y","command": "workbench.debug.action.toggleRepl"},
+    { "key": "ctrl+shift+alt+d","command": "editor.action.addSelectionToNextFindMatch","when": "editorFocus" },
+]
