@@ -1,5 +1,4 @@
 // Place your key bindings in this file to overwrite the defaults
-// eclipse习惯
 [
     { "key": "alt+/",  "command": "editor.action.triggerSuggest","when": "editorTextFocus" },
     { "key": "ctrl+alt+down","command": "editor.action.copyLinesDownAction", "when": "editorTextFocus" },
@@ -12,5 +11,9 @@
     { "key": "ctrl+shift+y","command": "editor.action.transformToLowercase","when": "editorTextFocus"},
     { "key": "ctrl+shift+alt+x","command": "workbench.view.extensions" },
     { "key": "ctrl+shift+alt+y","command": "workbench.debug.action.toggleRepl"},
-    { "key": "ctrl+shift+alt+d","command": "editor.action.addSelectionToNextFindMatch","when": "editorFocus" },
+    {
+        "key": "ctrl+shift+alt+d",
+        "command": "editor.action.addSelectionToNextFindMatch",
+        "when": "editorFocus"
+    }
 ]

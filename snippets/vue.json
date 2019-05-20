@@ -13,47 +13,29 @@
 	// 	"description": "Log output to console"
 	// }
 	"Print import from": {
-		"prefix": "import from",
+		"prefix": "im fr ",
 		"body": [
-			"import ${2} from '${1:.}'${3}"
+			"import ${2} from '.${1}'${3}"
 			// "import ${2:${1/(.*)$/${1:/capitalize}/i}} from './${1}'",
 		],
 		"description": "Log output to import  from '.'"
 	},
 	"Print new Date()": {
-		"prefix": "new Date()",
+		"prefix": "n d ",
 		"body": [
 			"const ${1:date} = new Date()${2}",
 		],
 		"description": "Log output const date = new Date()"
 	},
 	"Print export default": {
-		"prefix": "export default",
+		"prefix": "ex de ",
 		"body": [
 			"export default ${1}"
 		],
 		"description": "Log output export default "
 	},
-	"Print export default class": {
-		"prefix": "export default class",
-		"body": [
-			"export default class ${1:name} {",
-			"\t${2}",
-			"}"
-		],
-		"description": "Log output export default class name {}"
-	},
-	"Print export default class extends": {
-		"prefix": "export default class extends",
-		"body": [
-			"export default class ${1:name} extends ${2:parent} {",
-			"\t${3}",
-			"}"
-		],
-		"description": "Log output export default class name extends parent {}"
-	},
 	"Print export default json": {
-		"prefix": "export default json",
+		"prefix": "ex de json",
 		"body": [
 			"export default {",
 			"\t${1}",
@@ -63,21 +45,21 @@
 		"description": "Log output const date = new Date()"
 	},
 	"Print export default new": {
-		"prefix": "export default new",
+		"prefix": "ex de new",
 		"body": [
 			"export default new ${1:Object}(${2})${3}"
 		],
 		"description": "Log output export default new Object()"
 	},
 	"Print export const": {
-		"prefix": "export const",
+		"prefix": "ex con",
 		"body": [
-			"export const ${1:NAME} = \"${2:VALUE}\""
+			"export const ${1:NAME} = \"${2:NAME}\""
 		],
 		"description": "Log output export const NAME = NAME"
 	},
 	"Print export const object": {
-		"prefix": "export const object",
+		"prefix": "ex con obj",
 		"body": [
 			"export const ${1:NAME} = {",
 			"\t${2}",	
@@ -85,69 +67,30 @@
 		],
 		"description": "Log output export const NAME = {}"
 	},
-	"Print simple function": {
-		"prefix": "fun",
+	"Print function": {
+		"prefix": "fu ()",
 		"body": [
-			"function (${1}) {",
-      "\t${2}",
+			"function () {",
+      "\t${1}",
 			"}"
 		],
 		"description": "Log output function () {}"
 	},
-	"Print same argument": {
-		"prefix": "same as",
-		"body": [
-			"${1} = ${1}${2}"
-		],
-		"description": "Log output X = X"
-	},
-	"Print this same argument": {
-		"prefix": "this.same as",
+	"Print this argument": {
+		"prefix": "this same argument",
 		"body": [
 			"this.${1} = ${1}${2}"
 		],
 		"description": "Log output this.X = X"
 	},
 	"Print builder method": {
-		"prefix": "builder method",
+		"prefix": "builder_method",
 		"body": [
 			"${1:name} () {",
 			"\t${2}",
 			"\treturn this",
 			"}"
 		],
-		"description": "Log output name () {return this}"
-	},
-	"Print arrow function expression": {
-		"prefix": ["arrow function expression", "=> ", "()=>"],
-		"body": [
-			"(${1:value}) => {",
-			"\t${2}",
-			"}"
-		],
-		"description": "Log output  (value) => {}"
-	},
-	"Print template literals": {
-		"prefix": [ "template literals", "template strings", "`${ " ],
-		"body": [
-			"`${2}${${1:argument}}${3}`"
-		],
-		"description": "Log output `${argument}`"
-	},
-	"Print instanceof Array": {
-		"prefix": "instanceof Array",
-		"body": [
-			"${1:data} instanceof Array"
-		],
-		"description": "Log output data  instanceof Array"
-	},
-	"Print autorun jscode": {
-		"prefix": ["autorun code", "()()"],
-		"body": [
-			"(function (){",
-			"\t${1}",
-			"})()"
-		],
-		"description": "Log output data  instanceof Array"
+		"description": "Log name () {return this}"
 	},
 }

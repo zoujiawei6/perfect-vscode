@@ -1,4 +1,3 @@
-// see https://code.visualstudio.com/docs/getstarted/settings#_default-settings
 {
     "workbench.sideBar.location": "left",
     "workbench.colorCustomizations": {},
@@ -6,7 +5,7 @@
     "emmet.triggerExpansionOnTab": true,
     "editor.tabSize": 2,
     "search.followSymlinks": false,
-    "git.path": "D:/Git/bin/git.exe",
+    "git.path": "D:/zoujiawei/Git/bin/git.exe",
     "[javascript]": {
         "editor.defaultFormatter": "HookyQR.beautify"
     },
@@ -14,5 +13,31 @@
         "editor.defaultFormatter": "HookyQR.beautify"
     },
     "javascript.updateImportsOnFileMove.enabled": "never",
-    "workbench.iconTheme": "vscode-icons"
+    "workbench.iconTheme": "vscode-icons",
+    "window.zoomLevel": 0,
+    "terminal.integrated.rendererType": "dom",
+    "extensions.autoUpdate": false,
+    "fileheader.customMade":{
+        "author": "zoujiawei6",
+        "Date": "Do not edit",
+        "LastEditTime": "Do not edit"
+      },
+    "fileheader.configObj": {
+      "specialOptions":{
+        "Date": "date",
+        "LastEditTime": "update"
+      },
+      "language": {
+          "java": {
+              "head": "/**",
+              "middle": " * @",
+              "end": " */"
+          },
+          "javascript": {
+              "head": "/**",
+              "middle": " * @",
+              "end": " */"
+          }
+      }
+    }
 }

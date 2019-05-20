@@ -3,6 +3,6 @@
 
 为避免覆盖原来的插件，可以先创建一个`bak`文件夹，然后将当前目录下的文件移动到`bak`文件夹下做个备份。
 插件文件`extensions.7z`进行过`7z`压缩，文件比较大。需解压后将文件复制到`extensions`目录下。
-压缩文件`MD5`：E745FD61467738AF87A4A750AB5813ED
+压缩文件`MD5`：`00105FD613BC180F6A0E6E35F2AE7A14`
 
 最后点击`vscode`的`EXTENSIONS`的右上角，进行`Check for Extensions Update`。

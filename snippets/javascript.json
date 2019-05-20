@@ -15,7 +15,7 @@
 	"Print import from": {
 		"prefix": "import from",
 		"body": [
-			"import ${2} from '${1:.}'${3}"
+			"import ${2} from '${1:./}'${3}"
 			// "import ${2:${1/(.*)$/${1:/capitalize}/i}} from './${1}'",
 		],
 		"description": "Log output to import  from '.'"
@@ -43,6 +43,15 @@
 		],
 		"description": "Log output export default class name {}"
 	},
+	"Print export default function": {
+		"prefix": "export default function",
+		"body": [
+			"export default function (${1:param}) {",
+			"\t${2}",
+			"}"
+		],
+		"description": "Log output export default class name {}"
+	},
 	"Print export default class extends": {
 		"prefix": "export default class extends",
 		"body": [
@@ -51,6 +60,15 @@
 			"}"
 		],
 		"description": "Log output export default class name extends parent {}"
+	},
+	"Print export default Object.freeze": {
+		"prefix": "export default Object.freeze",
+		"body": [
+			"export default Object.freeze({",
+			"\t${1}",
+			"})"
+		],
+		"description": "Log output export default Object.freeze({})"
 	},
 	"Print export default json": {
 		"prefix": "export default json",
@@ -102,7 +120,7 @@
 		"description": "Log output X = X"
 	},
 	"Print this same argument": {
-		"prefix": "this.same as",
+		"prefix": "this same as",
 		"body": [
 			"this.${1} = ${1}${2}"
 		],
@@ -121,8 +139,8 @@
 	"Print arrow function expression": {
 		"prefix": ["arrow function expression", "=> ", "()=>"],
 		"body": [
-			"(${1:value}) => {",
-			"\t${2}",
+			"${1:;}(${2:value}) => {",
+			"\t${3}",
 			"}"
 		],
 		"description": "Log output  (value) => {}"
@@ -144,8 +162,8 @@
 	"Print autorun jscode": {
 		"prefix": ["autorun code", "()()"],
 		"body": [
-			"(function (){",
-			"\t${1}",
+			"${1:;}(function (${2}){",
+			"\t${3}",
 			"})()"
 		],
 		"description": "Log output data  instanceof Array"

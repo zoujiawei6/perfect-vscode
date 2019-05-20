@@ -1,0 +1,23 @@
+[
+	{
+		"name": "articles",
+		"rootPath": "/zoujiawei/workspace/my-blods",
+		"paths": [],
+		"group": "",
+		"enabled": true
+	},
+	{
+		"name": "htmls",
+		"rootPath": "/zoujiawei/workspace/html",
+		"paths": [],
+		"group": "",
+		"enabled": true
+	},
+	{
+		"name": "node-web-server",
+		"rootPath": "/zoujiawei/workspace/html/BBNFutrues/node-web-server",
+		"paths": [],
+		"group": "",
+		"enabled": true
+	}
+]
