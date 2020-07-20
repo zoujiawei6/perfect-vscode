@@ -12,6 +12,13 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
+	"Print this.same argument": {
+		"prefix": "this.=",
+		"body": [
+			"this.${1} = ${1}${2}"
+		],
+		"description": "Completion to output this.X = X"
+	},
 	"Print import from": {
 		"prefix": "import from",
 		"body": [
@@ -112,13 +119,6 @@
 		],
 		"description": "Log output function () {}"
 	},
-	"Print same argument": {
-		"prefix": "same as",
-		"body": [
-			"${1} = ${1}${2}"
-		],
-		"description": "Log output X = X"
-	},
 	"Print this same argument": {
 		"prefix": "this same as",
 		"body": [
@@ -137,7 +137,7 @@
 		"description": "Log output name () {return this}"
 	},
 	"Print arrow function expression": {
-		"prefix": ["arrow function expression", "=> ", "()=>"],
+		"prefix": ["arrow function expression", "=> ", "()=>", "afe=>"],
 		"body": [
 			"${1:;}(${2:value}) => {",
 			"\t${3}",

@@ -15,60 +15,65 @@
 	// 	],
 	// 	"description": "Log to console"
 	// }
-	"Print callback": {
-		"prefix": "cb ",
-		"body": [
-			"callback"
-		],
-		"description": "Log callback"
-	},
-	"Print request": {
-		"prefix": "req ",
-		"body": [
-			"request"
-		],
-		"description": "Log request"
-	},
-	"Print response": {
-		"prefix": "res ",
-		"body": [
-			"response"
-		],
-		"description": "Log response"
-	},
-	"Print javascript": {
-		"prefix": "js ",
-		"body": [
-			"javascript"
-		],
-		"description": "Log javascript"
-	},
+	// ">>" prefix
 	"Print now time": {
-		"prefix": "$ now",
+		"prefix": [
+			">>now",
+			"》》now"
+		],
 		"body": [
 			"$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND"
 		],
-		"description": "Log now time in yyyy-MM-dd HH:mm:ss format"
+		"description": "now time in yyyy-MM-dd HH:mm:ss format"
 	},
-	"Print infomation": {
-		"prefix": "info ",
+	// Abbreviation completion
+	"Completion callback": {
+		"prefix": [ "cb","callback" ],
+		"body": [
+			"callback"
+		],
+		"description": "Completion to callback"
+	},
+	"Completion request": {
+		"prefix": "request",
+		"body": [
+			"request"
+		],
+		"description": "Completion to request"
+	},
+	"Completion response": {
+		"prefix": "response",
+		"body": [
+			"response"
+		],
+		"description": "Completion to response"
+	},
+	"Completion javascript": {
+		"prefix": [ "js","javascript" ],
+		"body": [
+			"javascript"
+		],
+		"description": "Completion to javascript"
+	},
+	"Completion infomation": {
+		"prefix": "information",
 		"body": [
 			"information"
 		],
-		"description": "Log information"
+		"description": "Completion to information"
 	},
-	"Print value": {
-		"prefix": "val ",
+	"Completion value": {
+		"prefix": "value",
 		"body": [
 			"value"
 		],
-		"description": "Log result"
+		"description": "Completion to result"
 	},
-	"Print result": {
+	"Completion result": {
 		"prefix": "result",
 		"body": [
 			"result"
 		],
-		"description": "Log result"
+		"description": "Completion to result"
 	},
 }
