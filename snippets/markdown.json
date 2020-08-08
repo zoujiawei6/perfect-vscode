@@ -14,22 +14,45 @@
 	// }
 	// ---
 	// template javascript code：
-	// ;(function () {
-	// 	const array = [ 'applescript', 'actionscript3', 'as3', 'bash', 'shell', 'coldfusion', 'cf', 'cpp', 'c', 'c#', 'c-sharp', 'csharp', 'css', 'delphi', 'pascal', 'pas', 'diff patch', 'erl', 'erlang', 'groovy', 'java', 'jfx', 'javafx', 'js', 'jscript', 'javascript', 'json', 'perl', 'pl', 'Perl', 'php', 'text', 'plain', 'py', 'python', 'ruby', 'rails', 'ror', 'rb', 'sass', 'scss', 'scala', 'sql', 'vb', 'vbnet', 'xml', 'xhtml', 'xslt', 'html', 'objc', 'obj-c', 'f# f-sharp', 'fsharp', 'xpp', 'dynamics-xpp', 'r', 's', 'splus', 'matlab', 'swift', 'go', 'golang', 'mermaid', 'protobuf', 'vmoptions' ]
-	// 	let text = ''
-	// 	array.forEach(element => {
-	// 	text += `"Print ${element} template strings": {
-	// 	"prefix": "\`\`\`${element}",
-	// 	"body": [
-	// 		"\`\`\`${element}",
-	// 		"\${1}",
-	// 		"\`\`\`"
-	// 	],
-	// 	"description": "Log \`\`\`${element}\`\`\`"
+	// 	; (function () {
+	// 		const array = [' ', 'applescript', 'actionscript3', 'as3', 'bash', 'shell', 'coldfusion', 'cf', 'cpp', 'c', 'c#', 'c-sharp',
+	// 			'csharp', 'css', 'delphi', 'pascal', 'pas', 'diff patch', 'erl', 'erlang', 'groovy', 'java', 'jfx', 'javafx', 'js',
+	// 			'jscript', 'javascript', 'json', 'perl', 'pl', 'Perl', 'php', 'text', 'plain', 'py', 'python', 'ruby', 'rails', 'ror',
+	// 			'rb', 'sass', 'scss', 'scala', 'sql', 'vb', 'vbnet', 'xml', 'xhtml', 'xslt', 'html', 'objc', 'obj-c', 'f# f-sharp', 'fsharp',
+	// 			'xpp', 'dynamics-xpp', 'r', 's', 'splus', 'matlab', 'swift', 'go', 'golang', 'mermaid', 'protobuf', 'vmoptions', 'ini',
+	// 			'properties'
+	// 		], bodies = {
+	// 			mermaid: `
+	// "\`\`\`mermaid",
+	// "graph TD;",
+	// "\${1}",
+	// "\`\`\`"
+	// `
+	// 		}
+	// 		let text = ''
+	// 		array.forEach(element => {
+	// 			const body = bodies[element]|| `
+	// "\`\`\`${element}",
+	// "\${1}",
+	// "\`\`\`"
+	// `
+	// 			text += `"Print ${element} template strings": {
+	// "prefix": "\`\`\`${element}",
+	// "body": [${body}],
+	// "description": "Log \`\`\`${element}\`\`\`"
 	// },\n`
-	// 	})
-	// 	console.log(text)
-	// })()
+	// 		})
+	// 		console.log(text)
+	// 	})()
+	"Print   template strings": {
+		"prefix": "``` ",
+		"body": [
+			"``` ",
+			"${1}",
+			"```"
+		],
+		"description": "Log ``` ```"
+	},
 	"Print applescript template strings": {
 		"prefix": "```applescript",
 		"body": [
@@ -592,6 +615,7 @@
 		"prefix": "```mermaid",
 		"body": [
 			"```mermaid",
+			"graph TD;",
 			"${1}",
 			"```"
 		],
@@ -614,6 +638,24 @@
 			"```"
 		],
 		"description": "Log ```vmoptions```"
+	},
+	"Print ini template strings": {
+		"prefix": "```ini",
+		"body": [
+			"```ini",
+			"${1}",
+			"```"
+		],
+		"description": "Log ```ini```"
+	},
+	"Print properties template strings": {
+		"prefix": "```properties",
+		"body": [
+			"```properties",
+			"${1}",
+			"```"
+		],
+		"description": "Log ```properties```"
 	},
 	// (function (){
 	// 	let text = ''
@@ -695,7 +737,7 @@
 	// 	for (let i = 1; i < row; i++) {
 	// 		for (let j = 1; j < col; j++) {
 	// 			text += ` "Print table>${i}*${j}": {
-	// 		"prefix": [ "table>${i}*${j}", "table-${i}-${j}" ],
+	// 		"prefix": [ "table>${i}*${j}", "table-${i}-${j}", "table>tr*${i}>td*${j}" ],
 	// 		"body": [\n`
 	// 				text += `\t\t"| \${1} |`
 	// 			for (let k = 1; k < j; k++) {
@@ -721,7 +763,8 @@
 	"Print table>1*1": {
 		"prefix": [
 			"table>1*1",
-			"table-1-1"
+			"table-1-1",
+			"table>tr*1>td*1"
 		],
 		"body": [
 			"| ${1} |",
@@ -733,7 +776,8 @@
 	"Print table>1*2": {
 		"prefix": [
 			"table>1*2",
-			"table-1-2"
+			"table-1-2",
+			"table>tr*1>td*2"
 		],
 		"body": [
 			"| ${1} | ${2} |",
@@ -745,7 +789,8 @@
 	"Print table>1*3": {
 		"prefix": [
 			"table>1*3",
-			"table-1-3"
+			"table-1-3",
+			"table>tr*1>td*3"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} |",
@@ -757,7 +802,8 @@
 	"Print table>1*4": {
 		"prefix": [
 			"table>1*4",
-			"table-1-4"
+			"table-1-4",
+			"table>tr*1>td*4"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} |",
@@ -769,7 +815,8 @@
 	"Print table>1*5": {
 		"prefix": [
 			"table>1*5",
-			"table-1-5"
+			"table-1-5",
+			"table>tr*1>td*5"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} |",
@@ -781,7 +828,8 @@
 	"Print table>1*6": {
 		"prefix": [
 			"table>1*6",
-			"table-1-6"
+			"table-1-6",
+			"table>tr*1>td*6"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} | ${6} |",
@@ -793,7 +841,8 @@
 	"Print table>1*7": {
 		"prefix": [
 			"table>1*7",
-			"table-1-7"
+			"table-1-7",
+			"table>tr*1>td*7"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} | ${6} | ${7} |",
@@ -805,7 +854,8 @@
 	"Print table>1*8": {
 		"prefix": [
 			"table>1*8",
-			"table-1-8"
+			"table-1-8",
+			"table>tr*1>td*8"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} | ${6} | ${7} | ${8} |",
@@ -817,7 +867,8 @@
 	"Print table>1*9": {
 		"prefix": [
 			"table>1*9",
-			"table-1-9"
+			"table-1-9",
+			"table>tr*1>td*9"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} | ${6} | ${7} | ${8} | ${9} |",
@@ -829,7 +880,8 @@
 	"Print table>2*1": {
 		"prefix": [
 			"table>2*1",
-			"table-2-1"
+			"table-2-1",
+			"table>tr*2>td*1"
 		],
 		"body": [
 			"| ${1} |",
@@ -842,7 +894,8 @@
 	"Print table>2*2": {
 		"prefix": [
 			"table>2*2",
-			"table-2-2"
+			"table-2-2",
+			"table>tr*2>td*2"
 		],
 		"body": [
 			"| ${1} | ${2} |",
@@ -855,7 +908,8 @@
 	"Print table>2*3": {
 		"prefix": [
 			"table>2*3",
-			"table-2-3"
+			"table-2-3",
+			"table>tr*2>td*3"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} |",
@@ -868,7 +922,8 @@
 	"Print table>2*4": {
 		"prefix": [
 			"table>2*4",
-			"table-2-4"
+			"table-2-4",
+			"table>tr*2>td*4"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} |",
@@ -881,7 +936,8 @@
 	"Print table>2*5": {
 		"prefix": [
 			"table>2*5",
-			"table-2-5"
+			"table-2-5",
+			"table>tr*2>td*5"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} |",
@@ -894,7 +950,8 @@
 	"Print table>2*6": {
 		"prefix": [
 			"table>2*6",
-			"table-2-6"
+			"table-2-6",
+			"table>tr*2>td*6"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} | ${6} |",
@@ -907,7 +964,8 @@
 	"Print table>2*7": {
 		"prefix": [
 			"table>2*7",
-			"table-2-7"
+			"table-2-7",
+			"table>tr*2>td*7"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} | ${6} | ${7} |",
@@ -920,7 +978,8 @@
 	"Print table>2*8": {
 		"prefix": [
 			"table>2*8",
-			"table-2-8"
+			"table-2-8",
+			"table>tr*2>td*8"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} | ${6} | ${7} | ${8} |",
@@ -933,7 +992,8 @@
 	"Print table>2*9": {
 		"prefix": [
 			"table>2*9",
-			"table-2-9"
+			"table-2-9",
+			"table>tr*2>td*9"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} | ${6} | ${7} | ${8} | ${9} |",
@@ -946,7 +1006,8 @@
 	"Print table>3*1": {
 		"prefix": [
 			"table>3*1",
-			"table-3-1"
+			"table-3-1",
+			"table>tr*3>td*1"
 		],
 		"body": [
 			"| ${1} |",
@@ -960,7 +1021,8 @@
 	"Print table>3*2": {
 		"prefix": [
 			"table>3*2",
-			"table-3-2"
+			"table-3-2",
+			"table>tr*3>td*2"
 		],
 		"body": [
 			"| ${1} | ${2} |",
@@ -974,7 +1036,8 @@
 	"Print table>3*3": {
 		"prefix": [
 			"table>3*3",
-			"table-3-3"
+			"table-3-3",
+			"table>tr*3>td*3"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} |",
@@ -988,7 +1051,8 @@
 	"Print table>3*4": {
 		"prefix": [
 			"table>3*4",
-			"table-3-4"
+			"table-3-4",
+			"table>tr*3>td*4"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} |",
@@ -1002,7 +1066,8 @@
 	"Print table>3*5": {
 		"prefix": [
 			"table>3*5",
-			"table-3-5"
+			"table-3-5",
+			"table>tr*3>td*5"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} |",
@@ -1016,7 +1081,8 @@
 	"Print table>3*6": {
 		"prefix": [
 			"table>3*6",
-			"table-3-6"
+			"table-3-6",
+			"table>tr*3>td*6"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} | ${6} |",
@@ -1030,7 +1096,8 @@
 	"Print table>3*7": {
 		"prefix": [
 			"table>3*7",
-			"table-3-7"
+			"table-3-7",
+			"table>tr*3>td*7"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} | ${6} | ${7} |",
@@ -1044,7 +1111,8 @@
 	"Print table>3*8": {
 		"prefix": [
 			"table>3*8",
-			"table-3-8"
+			"table-3-8",
+			"table>tr*3>td*8"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} | ${6} | ${7} | ${8} |",
@@ -1058,7 +1126,8 @@
 	"Print table>3*9": {
 		"prefix": [
 			"table>3*9",
-			"table-3-9"
+			"table-3-9",
+			"table>tr*3>td*9"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} | ${6} | ${7} | ${8} | ${9} |",
@@ -1072,7 +1141,8 @@
 	"Print table>4*1": {
 		"prefix": [
 			"table>4*1",
-			"table-4-1"
+			"table-4-1",
+			"table>tr*4>td*1"
 		],
 		"body": [
 			"| ${1} |",
@@ -1087,7 +1157,8 @@
 	"Print table>4*2": {
 		"prefix": [
 			"table>4*2",
-			"table-4-2"
+			"table-4-2",
+			"table>tr*4>td*2"
 		],
 		"body": [
 			"| ${1} | ${2} |",
@@ -1102,7 +1173,8 @@
 	"Print table>4*3": {
 		"prefix": [
 			"table>4*3",
-			"table-4-3"
+			"table-4-3",
+			"table>tr*4>td*3"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} |",
@@ -1117,7 +1189,8 @@
 	"Print table>4*4": {
 		"prefix": [
 			"table>4*4",
-			"table-4-4"
+			"table-4-4",
+			"table>tr*4>td*4"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} |",
@@ -1132,7 +1205,8 @@
 	"Print table>4*5": {
 		"prefix": [
 			"table>4*5",
-			"table-4-5"
+			"table-4-5",
+			"table>tr*4>td*5"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} |",
@@ -1147,7 +1221,8 @@
 	"Print table>4*6": {
 		"prefix": [
 			"table>4*6",
-			"table-4-6"
+			"table-4-6",
+			"table>tr*4>td*6"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} | ${6} |",
@@ -1162,7 +1237,8 @@
 	"Print table>4*7": {
 		"prefix": [
 			"table>4*7",
-			"table-4-7"
+			"table-4-7",
+			"table>tr*4>td*7"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} | ${6} | ${7} |",
@@ -1177,7 +1253,8 @@
 	"Print table>4*8": {
 		"prefix": [
 			"table>4*8",
-			"table-4-8"
+			"table-4-8",
+			"table>tr*4>td*8"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} | ${6} | ${7} | ${8} |",
@@ -1192,7 +1269,8 @@
 	"Print table>4*9": {
 		"prefix": [
 			"table>4*9",
-			"table-4-9"
+			"table-4-9",
+			"table>tr*4>td*9"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} | ${6} | ${7} | ${8} | ${9} |",
@@ -1207,7 +1285,8 @@
 	"Print table>5*1": {
 		"prefix": [
 			"table>5*1",
-			"table-5-1"
+			"table-5-1",
+			"table>tr*5>td*1"
 		],
 		"body": [
 			"| ${1} |",
@@ -1223,7 +1302,8 @@
 	"Print table>5*2": {
 		"prefix": [
 			"table>5*2",
-			"table-5-2"
+			"table-5-2",
+			"table>tr*5>td*2"
 		],
 		"body": [
 			"| ${1} | ${2} |",
@@ -1239,7 +1319,8 @@
 	"Print table>5*3": {
 		"prefix": [
 			"table>5*3",
-			"table-5-3"
+			"table-5-3",
+			"table>tr*5>td*3"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} |",
@@ -1255,7 +1336,8 @@
 	"Print table>5*4": {
 		"prefix": [
 			"table>5*4",
-			"table-5-4"
+			"table-5-4",
+			"table>tr*5>td*4"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} |",
@@ -1271,7 +1353,8 @@
 	"Print table>5*5": {
 		"prefix": [
 			"table>5*5",
-			"table-5-5"
+			"table-5-5",
+			"table>tr*5>td*5"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} |",
@@ -1287,7 +1370,8 @@
 	"Print table>5*6": {
 		"prefix": [
 			"table>5*6",
-			"table-5-6"
+			"table-5-6",
+			"table>tr*5>td*6"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} | ${6} |",
@@ -1303,7 +1387,8 @@
 	"Print table>5*7": {
 		"prefix": [
 			"table>5*7",
-			"table-5-7"
+			"table-5-7",
+			"table>tr*5>td*7"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} | ${6} | ${7} |",
@@ -1319,7 +1404,8 @@
 	"Print table>5*8": {
 		"prefix": [
 			"table>5*8",
-			"table-5-8"
+			"table-5-8",
+			"table>tr*5>td*8"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} | ${6} | ${7} | ${8} |",
@@ -1335,7 +1421,8 @@
 	"Print table>5*9": {
 		"prefix": [
 			"table>5*9",
-			"table-5-9"
+			"table-5-9",
+			"table>tr*5>td*9"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} | ${6} | ${7} | ${8} | ${9} |",
@@ -1351,7 +1438,8 @@
 	"Print table>6*1": {
 		"prefix": [
 			"table>6*1",
-			"table-6-1"
+			"table-6-1",
+			"table>tr*6>td*1"
 		],
 		"body": [
 			"| ${1} |",
@@ -1368,7 +1456,8 @@
 	"Print table>6*2": {
 		"prefix": [
 			"table>6*2",
-			"table-6-2"
+			"table-6-2",
+			"table>tr*6>td*2"
 		],
 		"body": [
 			"| ${1} | ${2} |",
@@ -1385,7 +1474,8 @@
 	"Print table>6*3": {
 		"prefix": [
 			"table>6*3",
-			"table-6-3"
+			"table-6-3",
+			"table>tr*6>td*3"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} |",
@@ -1402,7 +1492,8 @@
 	"Print table>6*4": {
 		"prefix": [
 			"table>6*4",
-			"table-6-4"
+			"table-6-4",
+			"table>tr*6>td*4"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} |",
@@ -1419,7 +1510,8 @@
 	"Print table>6*5": {
 		"prefix": [
 			"table>6*5",
-			"table-6-5"
+			"table-6-5",
+			"table>tr*6>td*5"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} |",
@@ -1436,7 +1528,8 @@
 	"Print table>6*6": {
 		"prefix": [
 			"table>6*6",
-			"table-6-6"
+			"table-6-6",
+			"table>tr*6>td*6"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} | ${6} |",
@@ -1453,7 +1546,8 @@
 	"Print table>6*7": {
 		"prefix": [
 			"table>6*7",
-			"table-6-7"
+			"table-6-7",
+			"table>tr*6>td*7"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} | ${6} | ${7} |",
@@ -1470,7 +1564,8 @@
 	"Print table>6*8": {
 		"prefix": [
 			"table>6*8",
-			"table-6-8"
+			"table-6-8",
+			"table>tr*6>td*8"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} | ${6} | ${7} | ${8} |",
@@ -1487,7 +1582,8 @@
 	"Print table>6*9": {
 		"prefix": [
 			"table>6*9",
-			"table-6-9"
+			"table-6-9",
+			"table>tr*6>td*9"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} | ${6} | ${7} | ${8} | ${9} |",
@@ -1504,7 +1600,8 @@
 	"Print table>7*1": {
 		"prefix": [
 			"table>7*1",
-			"table-7-1"
+			"table-7-1",
+			"table>tr*7>td*1"
 		],
 		"body": [
 			"| ${1} |",
@@ -1522,7 +1619,8 @@
 	"Print table>7*2": {
 		"prefix": [
 			"table>7*2",
-			"table-7-2"
+			"table-7-2",
+			"table>tr*7>td*2"
 		],
 		"body": [
 			"| ${1} | ${2} |",
@@ -1540,7 +1638,8 @@
 	"Print table>7*3": {
 		"prefix": [
 			"table>7*3",
-			"table-7-3"
+			"table-7-3",
+			"table>tr*7>td*3"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} |",
@@ -1558,7 +1657,8 @@
 	"Print table>7*4": {
 		"prefix": [
 			"table>7*4",
-			"table-7-4"
+			"table-7-4",
+			"table>tr*7>td*4"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} |",
@@ -1576,7 +1676,8 @@
 	"Print table>7*5": {
 		"prefix": [
 			"table>7*5",
-			"table-7-5"
+			"table-7-5",
+			"table>tr*7>td*5"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} |",
@@ -1594,7 +1695,8 @@
 	"Print table>7*6": {
 		"prefix": [
 			"table>7*6",
-			"table-7-6"
+			"table-7-6",
+			"table>tr*7>td*6"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} | ${6} |",
@@ -1612,7 +1714,8 @@
 	"Print table>7*7": {
 		"prefix": [
 			"table>7*7",
-			"table-7-7"
+			"table-7-7",
+			"table>tr*7>td*7"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} | ${6} | ${7} |",
@@ -1630,7 +1733,8 @@
 	"Print table>7*8": {
 		"prefix": [
 			"table>7*8",
-			"table-7-8"
+			"table-7-8",
+			"table>tr*7>td*8"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} | ${6} | ${7} | ${8} |",
@@ -1648,7 +1752,8 @@
 	"Print table>7*9": {
 		"prefix": [
 			"table>7*9",
-			"table-7-9"
+			"table-7-9",
+			"table>tr*7>td*9"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} | ${6} | ${7} | ${8} | ${9} |",
@@ -1666,7 +1771,8 @@
 	"Print table>8*1": {
 		"prefix": [
 			"table>8*1",
-			"table-8-1"
+			"table-8-1",
+			"table>tr*8>td*1"
 		],
 		"body": [
 			"| ${1} |",
@@ -1685,7 +1791,8 @@
 	"Print table>8*2": {
 		"prefix": [
 			"table>8*2",
-			"table-8-2"
+			"table-8-2",
+			"table>tr*8>td*2"
 		],
 		"body": [
 			"| ${1} | ${2} |",
@@ -1704,7 +1811,8 @@
 	"Print table>8*3": {
 		"prefix": [
 			"table>8*3",
-			"table-8-3"
+			"table-8-3",
+			"table>tr*8>td*3"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} |",
@@ -1723,7 +1831,8 @@
 	"Print table>8*4": {
 		"prefix": [
 			"table>8*4",
-			"table-8-4"
+			"table-8-4",
+			"table>tr*8>td*4"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} |",
@@ -1742,7 +1851,8 @@
 	"Print table>8*5": {
 		"prefix": [
 			"table>8*5",
-			"table-8-5"
+			"table-8-5",
+			"table>tr*8>td*5"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} |",
@@ -1761,7 +1871,8 @@
 	"Print table>8*6": {
 		"prefix": [
 			"table>8*6",
-			"table-8-6"
+			"table-8-6",
+			"table>tr*8>td*6"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} | ${6} |",
@@ -1780,7 +1891,8 @@
 	"Print table>8*7": {
 		"prefix": [
 			"table>8*7",
-			"table-8-7"
+			"table-8-7",
+			"table>tr*8>td*7"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} | ${6} | ${7} |",
@@ -1799,7 +1911,8 @@
 	"Print table>8*8": {
 		"prefix": [
 			"table>8*8",
-			"table-8-8"
+			"table-8-8",
+			"table>tr*8>td*8"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} | ${6} | ${7} | ${8} |",
@@ -1818,7 +1931,8 @@
 	"Print table>8*9": {
 		"prefix": [
 			"table>8*9",
-			"table-8-9"
+			"table-8-9",
+			"table>tr*8>td*9"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} | ${6} | ${7} | ${8} | ${9} |",
@@ -1837,7 +1951,8 @@
 	"Print table>9*1": {
 		"prefix": [
 			"table>9*1",
-			"table-9-1"
+			"table-9-1",
+			"table>tr*9>td*1"
 		],
 		"body": [
 			"| ${1} |",
@@ -1857,7 +1972,8 @@
 	"Print table>9*2": {
 		"prefix": [
 			"table>9*2",
-			"table-9-2"
+			"table-9-2",
+			"table>tr*9>td*2"
 		],
 		"body": [
 			"| ${1} | ${2} |",
@@ -1877,7 +1993,8 @@
 	"Print table>9*3": {
 		"prefix": [
 			"table>9*3",
-			"table-9-3"
+			"table-9-3",
+			"table>tr*9>td*3"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} |",
@@ -1897,7 +2014,8 @@
 	"Print table>9*4": {
 		"prefix": [
 			"table>9*4",
-			"table-9-4"
+			"table-9-4",
+			"table>tr*9>td*4"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} |",
@@ -1917,7 +2035,8 @@
 	"Print table>9*5": {
 		"prefix": [
 			"table>9*5",
-			"table-9-5"
+			"table-9-5",
+			"table>tr*9>td*5"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} |",
@@ -1937,7 +2056,8 @@
 	"Print table>9*6": {
 		"prefix": [
 			"table>9*6",
-			"table-9-6"
+			"table-9-6",
+			"table>tr*9>td*6"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} | ${6} |",
@@ -1957,7 +2077,8 @@
 	"Print table>9*7": {
 		"prefix": [
 			"table>9*7",
-			"table-9-7"
+			"table-9-7",
+			"table>tr*9>td*7"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} | ${6} | ${7} |",
@@ -1977,7 +2098,8 @@
 	"Print table>9*8": {
 		"prefix": [
 			"table>9*8",
-			"table-9-8"
+			"table-9-8",
+			"table>tr*9>td*8"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} | ${6} | ${7} | ${8} |",
@@ -1997,7 +2119,8 @@
 	"Print table>9*9": {
 		"prefix": [
 			"table>9*9",
-			"table-9-9"
+			"table-9-9",
+			"table>tr*9>td*9"
 		],
 		"body": [
 			"| ${1} | ${2} | ${3} | ${4} | ${5} | ${6} | ${7} | ${8} | ${9} |",
