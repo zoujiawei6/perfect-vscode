@@ -143,6 +143,20 @@
 		],
 		"description": "value => true"
 	},
+	"Print arrow function simple": {
+		"prefix": ["arrow function simple", "=>"],
+		"body": [
+			"${1:value} => {\n\t${3}\n}"
+		],
+		"description": "value => {}"
+	},
+	"Print arrow function return": {
+		"prefix": ["arrow function return", "=>"],
+		"body": [
+			"${1:value} => {\n\t${2}\n\treturn ${3}\n}"
+		],
+		"description": "value => {return}"
+	},
 	"Print full arrow function": {
 		"prefix": ["arrow function full", "=>", "()=>"],
 		"body": [
@@ -164,7 +178,7 @@
 		"body": [
 			"${1:data} instanceof Array"
 		],
-		"description": "data  instanceof Array"
+		"description": "data instanceof Array"
 	},
 	"Print autorun jscode": {
 		"prefix": ["autorun code", "()()"],
@@ -173,6 +187,6 @@
 			"\t${3}",
 			"})()"
 		],
-		"description": "data  instanceof Array"
+		"description": ";(() => {})()"
 	},
 }
