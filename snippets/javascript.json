@@ -12,28 +12,117 @@
 	// 	],
 	// 	"description": "to console"
 	// }
-	"Print this.same argument": {
-		"prefix": "this.=",
+	// [START] API
+	"Print Array reduce arrow function": {
+		"prefix": "reduce((previousValue, currentValue, currentIndex, array})",
 		"body": [
-			"this.${1} = ${1}${2}"
+			"reduce((${1:previousValue}, ${2:currentValue}${3:, currentIndex, array}) => {",
+			"\t${4}",
+			"})${5}"
 		],
-		"description": "Completion to output this.X = X"
+		"description": "reduce((previousValue, currentValue, currentIndex, array) => {})"
 	},
-	"Print import from": {
-		"prefix": "import from",
-		"body": [
-			"import ${2} from '${1:./}'${3}"
-			// "import ${2:${1/(.*)$/${1:/capitalize}/i}} from './${1}'",
-		],
-		"description": "to import  from '.'"
-	},
-	"Print new Date()": {
-		"prefix": "new Date()",
+	"Print const new Date()": {
+		"prefix": "const new Date()",
 		"body": [
 			"const ${1:date} = new Date()${2}",
 		],
 		"description": "const date = new Date()"
 	},
+	// [END] API
+	// [START] import
+	"Print import from": {
+		"prefix": "import from",
+		"body": [
+			"import ${4:${1}} from '${2:${1}}'"
+			// "import ${2:${1/(.*)$/${1:/capitalize}/i}} from './${1}'",
+		],
+		"description": "import  from "
+	},
+	"Print import from export default class extends": {
+		"prefix": "import from export default class extends",
+		"body": [
+			"import ${4:${1}} from '${2:${1}}'",
+			"",
+			"export default class ${5:Name} extends ${4:${1}} {",
+			"\t${3}",
+			"}"
+		],
+		"description": "import from export default class Name extends {}"
+	},
+	"Print import from components": {
+		"prefix": "import from components",
+		"body": [
+			"import ${1} from '@/components${2:/${1}}'"
+			// "import ${2:${1/(.*)$/${1:/capitalize}/i}} from './${1}'",
+		],
+		"description": "to import  from '@/components/'"
+	},
+	"Print import from assets": {
+		"prefix": "import from assets",
+		"body": [
+			"import ${1} from '@/assets${2:/${1}}'"
+		],
+		"description": "to import  from '@/assets/'"
+	},
+	"Print import from router": {
+		"prefix": "import from router",
+		"body": [
+			"import ${1} from '@/router${2:/${1}}'"
+		],
+		"description": "to import  from '@/router/'"
+	},
+	"Print import from views": {
+		"prefix": "import from views",
+		"body": [
+			"import ${1} from '@/views${2:/${1}}'"
+		],
+		"description": "to import  from '@/views/'"
+	},
+	"Print import from utils": {
+		"prefix": "import from utils",
+		"body": [
+			"import ${1} from '@/utils${2:/${1}}'"
+		],
+		"description": "to import  from '@/utils/'"
+	},
+	"Print import from tools": {
+		"prefix": "import from tools",
+		"body": [
+			"import ${1} from '@/tools${2:/${1}}'"
+		],
+		"description": "to import  from '@/tools/'"
+	},
+	"Print import from locales": {
+		"prefix": "import from locales",
+		"body": [
+			"import ${1} from '@/locales${2:/${1}}'"
+		],
+		"description": "to import  from '@/locales/'"
+	},
+	"Print import from plugins": {
+		"prefix": "import from plugins",
+		"body": [
+			"import ${1} from '@/plugins${2:/${1}}'"
+		],
+		"description": "to import  from '@/plugins/'"
+	},
+	"Print import from config": {
+		"prefix": "import from config",
+		"body": [
+			"import ${1} from '@/config${2:/${1}}'"
+		],
+		"description": "to import  from '@/config/'"
+	},
+	"Print import from api": {
+		"prefix": "import from api",
+		"body": [
+			"import ${1} from '@/api${2:/${1}}'"
+		],
+		"description": "to import  from '@/api/'"
+	},
+	// [END] import
+	// [START] export
 	"Print export default": {
 		"prefix": "export default",
 		"body": [
@@ -41,35 +130,42 @@
 		],
 		"description": "export default "
 	},
+	"Print export default const =": {
+		"prefix": "export default const =",
+		"body": [
+			"export default const ${1:NAME} = ${2:${1:\"NAME\"}}"
+		],
+		"description": "export default const NAME = \"NAME\""
+	},
 	"Print export default class": {
 		"prefix": "export default class",
 		"body": [
-			"export default class ${1:name} {",
+			"export default class ${1:Name} {",
 			"\t${2}",
 			"}"
 		],
-		"description": "export default class name {}"
+		"description": "export default class Name {}"
+	},
+	"Print export default class extends": {
+		"prefix": "export default class extends",
+		"body": [
+			"export default class ${1:Name} extends ${2:Parent} {",
+			"\t${3}",
+			"}"
+		],
+		"description": "export default class Name extends Parent {}"
 	},
 	"Print export default function": {
 		"prefix": "export default function",
 		"body": [
 			"export default function (${1:param}) {",
-			"\t${2}",
+			"\t${2:${1}}",
 			"}"
 		],
-		"description": "export default class name {}"
-	},
-	"Print export default class extends": {
-		"prefix": "export default class extends",
-		"body": [
-			"export default class ${1:name} extends ${2:parent} {",
-			"\t${3}",
-			"}"
-		],
-		"description": "export default class name extends parent {}"
+		"description": "export default function"
 	},
 	"Print export default Object.freeze": {
-		"prefix": "export default Object.freeze",
+		"prefix": "export default Object.freeze({})",
 		"body": [
 			"export default Object.freeze({",
 			"\t${1}",
@@ -78,7 +174,10 @@
 		"description": "export default Object.freeze({})"
 	},
 	"Print export default json": {
-		"prefix": "export default json",
+		"prefix": [
+			"export default json",
+			"export default {}"
+		],
 		"body": [
 			"export default {",
 			"\t${1}",
@@ -90,32 +189,188 @@
 	"Print export default new": {
 		"prefix": "export default new",
 		"body": [
-			"export default new ${1:Object}(${2})${3}"
+			"export default new ${1:Object}(${2})"
 		],
 		"description": "export default new Object()"
+	},
+	"Print export class": {
+		"prefix": "export class",
+		"body": [
+			"export class ${1:Name} {",
+			"\t${2}",
+			"}"
+		],
+		"description": "export default class Name {}"
+	},
+	"Print export class extends": {
+		"prefix": "export class extends",
+		"body": [
+			"export class ${1:Name} extends ${2:Parent} {",
+			"\t${3}",
+			"}"
+		],
+		"description": "export class Name extends Parent {}"
 	},
 	"Print export const": {
 		"prefix": "export const",
 		"body": [
-			"export const ${1:NAME} = \"${2:VALUE}\""
+			"export const ${1}"
 		],
-		"description": "export const NAME = NAME"
+		"description": "export const"
 	},
-	"Print export const object": {
-		"prefix": "export const object",
+	"Print export const =": {
+		"prefix": "export const =",
+		"body": [
+			"export const ${1:NAME} = ${2:${1:\"NAME\"}}"
+		],
+		"description": "export const NAME = \"NAME\""
+	},
+	"Print export const json": {
+		"prefix": [
+			"export const = {}",
+			"export const json"
+		],
 		"body": [
 			"export const ${1:NAME} = {",
-			"\t${2}",	
+			"\t${2}",
 			"}"
 		],
 		"description": "export const NAME = {}"
 	},
-	"Print this same argument": {
-		"prefix": "this same as",
+	"Print export const Object.freeze": {
+		"prefix": "export const Object.freeze({})",
 		"body": [
-			"this.${1} = ${1}${2}"
+			"export const ${1:NAME} = Object.freeze({",
+			"\t${2}",
+			"})"
 		],
-		"description": "this.X = X"
+		"description": "export const NAME = Object.freeze({})"
+	},
+	"Print export const function": {
+		"prefix": "export const function",
+		"body": [
+			"export const ${1:NAME} = function(${2:param}) {",
+			"\t${3:${2}}",
+			"}"
+		],
+		"description": "export const NAME = function(param) {}"
+	},
+	"Print export const arrow function": {
+		"prefix": [
+			"export const arrow function",
+			"export const =>"
+		],
+		"body": [
+			"export const ${1:NAME} = (${2:param}) => {",
+			"\t${3:${2}}",
+			"}"
+		],
+		"description": "export const NAME = (param) => {}"
+	},
+	"Print export const new": {
+		"prefix": "export const new",
+		"body": [
+			"export const ${1:NAME} = new ${2:Object}(${3})"
+		],
+		"description": "export const NAME = new Object()"
+	},
+	// [END] export
+	// [START] arrow function
+	"Print arrow function": {
+		"prefix": [
+			"arrow function",
+			"=>"
+		],
+		"body": [
+			"(${2}) => {",
+			"\t${3}",
+			"}"
+		],
+		"description": "() => {}"
+	},
+	"Print arrow function minimalist": {
+		"prefix": "arrow function value => value",
+		"body": [
+			"${2:value} => ${3:value}"
+		],
+		"description": "value => value"
+	},
+	"Print arrow function simple": {
+		"prefix": [
+			"arrow function value => {}",
+			"=>"
+		],
+		"body": [
+			"${1:value} => {\n\t${3}\n}"
+		],
+		"description": "value => {}"
+	},
+	"Print arrow function value return": {
+		"prefix": [
+			"arrow function value => return",
+			"=>"
+		],
+		"body": [
+			"${1:value} => {\n\t${2}\n\treturn ${3}\n}"
+		],
+		"description": "value => {return}"
+	},
+	"Print full arrow function": {
+		"prefix": [
+			"arrow function full",
+			"=>"
+		],
+		"body": [
+			"${1:;}(${2:value}, ${3:index}, ${4:array}) => {",
+			"\t${5}",
+			"}"
+		],
+		"description": "(value, index, array) => {}"
+	},
+	// [END] arrow function
+	// [START] OTHER
+	"Print template literals": {
+		"prefix": [
+			"template literals",
+			"template strings",
+			"`${}`"
+		],
+		"body": [
+			"`${2}${${1:argument}}${3}`"
+		],
+		"description": "`${argument}`"
+	},
+	"Print instanceof Array": {
+		"prefix": "instanceof ${2:Array}",
+		"body": [
+			"instanceof ${2:Array}"
+		],
+		"description": "instanceof Array"
+	},
+	"Print !instanceof Array": {
+		"prefix": "!instanceof Array",
+		"body": [
+			"!(${1:data} instanceof ${2:Array})"
+		],
+		"description": "!(data instanceof Array)"
+	},
+	"Print ES6 setter": {
+		"prefix": "setter",
+		"body": [
+			"set ${1:name}(${1:name}) {",
+			"\t${3:this.${2:key} = ${1:name}}",
+			"}"
+		],
+		"description": "set name(name){this.key = name}"
+	},
+	"Print ES6 getter": {
+		"prefix": "getter",
+		"body": [
+			"get ${1:name}() {",
+			"\treturn ${3:this.${2}${1:name}}",
+			"}"
+		],
+		"description": "set name(name){this.key = name}"
 	},
 	"Print builder method": {
 		"prefix": "builder method",
@@ -127,66 +382,19 @@
 		],
 		"description": "name() {return this}"
 	},
-	"Print arrow function": {
-		"prefix": ["arrow function", "=>", "()=>"],
+	"Print this same argument": {
+		"prefix": "this same as",
 		"body": [
-			"(${2}) => {",
-			"\t${3}",
-			"}"
+			"this.${1} = ${1}${2}"
 		],
-		"description": "() => {}"
+		"description": "this.X = X"
 	},
-	"Print arrow function minimalist": {
-		"prefix": ["arrow function minimalist", "=>"],
+	"Print vue router id": {
+		"prefix": "$router.id",
 		"body": [
-			"${2:value} => ${3:true}"
+			"id: this.\\$router.params.id,"
 		],
-		"description": "value => true"
+		"description": "id: this.$router.params.id,"
 	},
-	"Print arrow function simple": {
-		"prefix": ["arrow function simple", "=>"],
-		"body": [
-			"${1:value} => {\n\t${3}\n}"
-		],
-		"description": "value => {}"
-	},
-	"Print arrow function return": {
-		"prefix": ["arrow function return", "=>"],
-		"body": [
-			"${1:value} => {\n\t${2}\n\treturn ${3}\n}"
-		],
-		"description": "value => {return}"
-	},
-	"Print full arrow function": {
-		"prefix": ["arrow function full", "=>", "()=>"],
-		"body": [
-			"${1:;}(${2:value}, ${3:index}, ${4:array}) => {",
-			"\t${5}",
-			"}"
-		],
-		"description": "(value, index, array) => {}"
-	},
-	"Print template literals": {
-		"prefix": [ "template literals", "template strings", "`${ " ],
-		"body": [
-			"`${2}${${1:argument}}${3}`"
-		],
-		"description": "`${argument}`"
-	},
-	"Print instanceof Array": {
-		"prefix": "instanceof Array",
-		"body": [
-			"${1:data} instanceof Array"
-		],
-		"description": "data instanceof Array"
-	},
-	"Print autorun jscode": {
-		"prefix": ["autorun code", "()()"],
-		"body": [
-			"${1:;}((${2}) => {",
-			"\t${3}",
-			"})()"
-		],
-		"description": ";(() => {})()"
-	},
+	// [END] OTHER
 }

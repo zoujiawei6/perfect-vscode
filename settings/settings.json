@@ -1,43 +1,55 @@
 {
-    "workbench.sideBar.location": "left",
-    "workbench.colorCustomizations": {},
-    "breadcrumbs.enabled": true,
+    // 启用后，按TAB键将扩展Emmet的缩写。
     "emmet.triggerExpansionOnTab": true,
-    "editor.tabSize": 2,
+    // 字体大小
+    "editor.fontSize": 14,
+    // 自动安装扩展更新。否
+    "extensions.autoUpdate": false,
+    // 缩略图以填充样式显示（放大或缩小）
+    "editor.minimap.size": "fill",
+    // 拖放移动文件和文件夹的确认。
+    "explorer.confirmDragAndDrop": true,
+    // 控制搜索时是否遵循符号链接。 可能导致高CPU占用
     "search.followSymlinks": false,
-    "git.path": "D:/zoujiawei/Git/bin/git.exe",
+    //【自定义】git路径
+    "git.path": "/usr/local/git/bin/git",
+    // vscode风格样式。需安装vscode-icons-team.vscode-icons插件
+    "workbench.iconTheme": "vscode-icons",
+    // 控制下次打开命令面板时是否应恢复最后键入的输入。
+    //【开始】markdown
+    // "workbench.commandPalette.preserveInput": true,
+    // yzane.markdown-pdf 只是谷歌浏览器内核位置以避免插件再安装一个Chrome
+    "markdown-pdf.executablePath": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    //【结束】markdown
+    // 允许在Windows的后台下载和安装新的VS Code版本
+    "update.enableWindowsBackgroundUpdates": true,
+    // 控制调试工具栏的位置。在所有视图中为“浮动”，在调试视图中为“停靠”，或为“隐藏”。
+    "debug.toolBarLocation": "docked",
+    //【结束】gruntfuggly.todo-tree
+    //【开始】文件移动时更新import路径
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    //【结束】文件移动时更新import路径
+    // 路径智能映射，如将@路径映射到src
+    "path-intellisense.mappings": {
+        "@": "${workspaceRoot}/src"
+    },
+    //【开始】格式化配置
+    "editor.tabSize": 2,
     "[javascript]": {
         "editor.defaultFormatter": "HookyQR.beautify"
     },
     "[html]": {
         "editor.defaultFormatter": "HookyQR.beautify"
     },
-    "javascript.updateImportsOnFileMove.enabled": "never",
-    "workbench.iconTheme": "vscode-icons",
-    "window.zoomLevel": 0,
-    "terminal.integrated.rendererType": "dom",
-    "extensions.autoUpdate": false,
-    "fileheader.customMade":{
-        "author": "zoujiawei6",
-        "Date": "Do not edit",
-        "LastEditTime": "Do not edit"
-      },
-    "fileheader.configObj": {
-      "specialOptions":{
-        "Date": "date",
-        "LastEditTime": "update"
-      },
-      "language": {
-          "java": {
-              "head": "/**",
-              "middle": " * @",
-              "end": " */"
-          },
-          "javascript": {
-              "head": "/**",
-              "middle": " * @",
-              "end": " */"
-          }
-      }
-    }
+    "vetur.format.defaultFormatterOptions": {
+        "prettier": {
+            "semi": false,
+            "singleQuote": true
+        }
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    //【结束】格式化配置 
 }

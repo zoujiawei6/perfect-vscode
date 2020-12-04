@@ -1,19 +1,263 @@
 // Place your key bindings in this file to overwrite the defaults
 [
-    { "key": "alt+/",  "command": "editor.action.triggerSuggest","when": "editorTextFocus" },
-    { "key": "ctrl+alt+down","command": "editor.action.copyLinesDownAction", "when": "editorTextFocus" },
-    { "key": "ctrl+alt+up", "command": "editor.action.copyLinesUpAction", "when": "editorTextFocus" },
-    { "key": "ctrl+shift+c","command": "editor.action.commentLine","when": "editorTextFocus" },
-    { "key": "ctrl+d","command": "editor.action.deleteLines","when": "editorTextFocus" },
-    { "key": "ctrl+k","command": "editor.action.addSelectionToNextFindMatch","when": "editorFocus"},
-    { "key": "ctrl+shift+f","command": "editor.action.format","when": "editorTextFocus"},
-    { "key": "ctrl+shift+x","command": "editor.action.transformToUppercase","when": "editorTextFocus"},
-    { "key": "ctrl+shift+y","command": "editor.action.transformToLowercase","when": "editorTextFocus"},
-    { "key": "ctrl+shift+alt+x","command": "workbench.view.extensions" },
-    { "key": "ctrl+shift+alt+y","command": "workbench.debug.action.toggleRepl"},
+    // - 选择上一个
     {
-        "key": "ctrl+shift+alt+d",
+        "key": "ctrl+k",
+        // "key": "cmd+d",
         "command": "editor.action.addSelectionToNextFindMatch",
         "when": "editorFocus"
-    }
+    },
+    // - 选择下一个
+    {
+        "key": "ctrl+shift+k",
+        // "key": "cmd+k cmd+d",
+        "command": "editor.action.moveSelectionToNextFindMatch",
+        "when": "editorFocus"
+    },
+    // - 切换区分大小写
+    {
+        "key": "alt+cmd+c",
+        "command": "workbench.action.terminal.toggleFindCaseSensitive",
+        "when": "terminalFindFocused && terminalProcessSupported || terminalFocus && terminalProcessSupported"
+    },
+    // - 打开选择器 并 选择下一个
+    {
+        "key": "ctrl+cmd+k",
+        "command": "editor.action.nextSelectionMatchFindAction",
+        "when": "editorTextFocus"
+    },
+    // - 打开选择器 并 选择上一个
+    {
+        "key": "shift+cmd+k",
+        "command": "editor.action.previousSelectionMatchFindAction",
+        "when": "editorTextFocus"
+    },
+    // - 选择所有当前选择
+    {
+        "key": "shift+cmd+l",
+        "command": "editor.action.selectHighlights",
+        "when": "editorFocus"
+    },
+    // - 选择当前出现的所有单词
+    {
+        "key": "cmd+f2",
+        "command": "editor.action.changeAll",
+        "when": "editorTextFocus && editorTextFocus && !editorReadonly"
+    },
+    // - 注释
+    {
+        "key": "cmd+/",
+        "command": "editor.action.commentLine",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    // - 向下复制一行
+    {
+        "key": "ctrl+alt+down",
+        "command": "editor.action.copyLinesDownAction",
+        "when": "editorTextFocus"
+    },
+    // - 向上复制一行
+    {
+        "key": "ctrl+alt+up",
+        "command": "editor.action.copyLinesUpAction",
+        "when": "editorTextFocus"
+    },
+    // - 跳转到匹配的括号
+    {
+        "key": "shift+cmd+\\",
+        "command": "editor.action.jumpToBracket",
+        "when": "editorTextFocus"
+    },
+    // - 缩进
+    {
+        "key": "cmd+[",
+        "command": "editor.action.outdentLines",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    // - 伸出（反缩进）
+    {
+        "key": "cmd+]",
+        "command": "editor.action.indentLines",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    // - 下移当前行或选中行
+    {
+        "key": "alt+down",
+        "command": "editor.action.moveLinesDownAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    // - 上移当前行或选中行
+    {
+        "key": "alt+up",
+        "command": "editor.action.moveLinesUpAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    // - 转到文件末尾
+    {
+        "key": "cmd+down",
+        "command": "cursorBottom",
+        "when": "textInputFocus"
+    },
+    // - 转到文件开头
+    {
+        "key": "cmd+up",
+        "command": "cursorTop",
+        "when": "textInputFocus"
+    },
+    // - 删除行
+    {
+        "key": "ctrl+d",
+        "command": "editor.action.deleteLines",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    // - 删除默认的 删除行
+    {
+        "key": "shift+cmd+k",
+        "command": "-editor.action.deleteLines",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    // - 删除右侧
+    {
+        "key": "cmd+d",
+        "command": "deleteRight",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    // - 大写
+    {
+        "key": "ctrl+shift+x",
+        "command": "editor.action.transformToUppercase",
+        "when": "editorTextFocus"
+    },
+    // - 小写
+    {
+        "key": "ctrl+shift+y",
+        "command": "editor.action.transformToLowercase",
+        "when": "editorTextFocus"
+    },
+    // - 切换自动换行
+    {
+        "key": "alt+z",
+        "command": "editor.action.toggleWordWrap"
+    },
+    // *** 丰富的语言编辑 *** //
+    // - 转到定义（如类定义、函数定义）
+    {
+        "key": "f12",
+        "command": "editor.action.revealDefinition",
+        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    // - 显示悬停
+    {
+        "key": "cmd+k cmd+i",
+        "command": "editor.action.showHover",
+        "when": "editorTextFocus"
+    },
+    // - 格式化
+    {
+        "key": "ctrl+shift+f",
+        "command": "editor.action.format",
+        "when": "editorTextFocus"
+    },
+    // - 格式化选中
+    {
+        "key": "shift+cmd+f",
+        "command": "editor.action.formatSelection",
+        "when": "editorHasSelection && editorTextFocus"
+    },
+    // - 触发提示/建议
+    {
+        "key": "alt+/",
+        "command": "editor.action.triggerSuggest",
+        "when": "editorTextFocus"
+    },
+    // - 触发子程序（方法、类、函数等等）的参数提示
+    {
+        "key": "shift+cmd+space",
+        "command": "editor.action.triggerParameterHints",
+        "when": "editorHasSignatureHelpProvider && editorTextFocus"
+    },
+    // *** 导航 *** //
+    // - 追踪符号/显示所有符号（如显示当前工作目录下所有该常量名的出现位置）
+    {
+        "key": "cmd+t",
+        "command": "workbench.action.showAllSymbols"
+    },
+    // - 转到行
+    {
+        "key": "cmd+l",
+        "command": "workbench.action.gotoLine"
+    },
+    // - 转到下一个错误或警告
+    {
+        "key": "f8",
+        "command": "editor.action.marker.nextInFiles",
+        "when": "editorFocus"
+    },
+    // - 转到上一个错误或警告
+    {
+        "key": "shift+f8",
+        "command": "editor.action.marker.prevInFiles",
+        "when": "editorFocus"
+    },
+    // - 导航编辑器组历史记录
+    {
+        "key": "ctrl+tab",
+        "command": "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup"
+    },
+    // - 回去上一次操作位置
+    {
+        "key": "ctrl+-",
+        "command": "workbench.action.navigateBack"
+    },
+    // - 向前到上一次操作位置
+    {
+        "key": "ctrl+shift+-",
+        "command": "workbench.action.navigateForward"
+    },
+    // - 选择组中的1-9个编辑器界面
+    // {
+    //     "key": "ctrl+1",
+    //     "command": "workbench.action.openEditorAtIndex1"
+    // }
+    // *** 编辑/窗口管理 *** //
+    // - 新窗口
+    {
+        "key": "shift+cmd+n",
+        "command": "workbench.action.newWindow"
+    },
+    // - 将编辑器移到下一个组
+    {
+        "key": "ctrl+cmd+right",
+        "command": "workbench.action.moveEditorToNextGroup"
+    },
+    // - 将编辑器移到上一组
+    {
+        "key": "ctrl+cmd+left",
+        "command": "workbench.action.moveEditorToPreviousGroup"
+    },
+    // - 快速打开视图（右侧菜单栏的功能）
+    // {
+    //     "key": "ctrl+q",
+    //     "command": "workbench.action.quickOpenView",
+    //     "when": "editorFocus"
+    // },
+    // *** 文件管理 *** //
+    // - 创建新文件
+    {
+        "key": "cmd+n",
+        "command": "workbench.action.files.newUntitledFile",
+        "args": {
+            "viewType": "default"
+        }
+    },
+    // - 文件比较
+    {
+        "key": "ctrl+alt+cmd+c",
+        "command": "workbench.files.action.compareFileWith"
+    },
+    // - 切换到终端
+    {
+        "key": "ctrl+`",
+        "command": "workbench.action.terminal.toggleTerminal"
+    },
 ]

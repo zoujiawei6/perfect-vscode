@@ -1,0 +1,201 @@
+{
+	// Place your snippets for javascript here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "to console"
+	// }
+	"Print this.same argument": {
+		"prefix": "this.=",
+		"body": [
+			"this.${1} = ${1}${2}"
+		],
+		"description": "Completion to output this.X = X"
+	},
+	"Print import from": {
+		"prefix": "import from",
+		"body": [
+			"import ${1} from '${2:./}'${3}"
+			// "import ${2:${1/(.*)$/${1:/capitalize}/i}} from './${1}'",
+		],
+		"description": "to import  from '.'"
+	},
+	"Print new Date()": {
+		"prefix": "new Date()",
+		"body": [
+			"const ${1:date} = new Date()${2}",
+		],
+		"description": "const date = new Date()"
+	},
+	"Print export default": {
+		"prefix": "export default",
+		"body": [
+			"export default ${1}"
+		],
+		"description": "export default "
+	},
+	"Print export default class": {
+		"prefix": "export default class",
+		"body": [
+			"export default class ${1:name} {",
+			"\t${2}",
+			"}"
+		],
+		"description": "export default class name {}"
+	},
+	"Print export default function": {
+		"prefix": "export default function",
+		"body": [
+			"export default function (${1:param}) {",
+			"\t${2}",
+			"}"
+		],
+		"description": "export default class name {}"
+	},
+	"Print export default class extends": {
+		"prefix": "export default class extends",
+		"body": [
+			"export default class ${1:name} extends ${2:parent} {",
+			"\t${3}",
+			"}"
+		],
+		"description": "export default class name extends parent {}"
+	},
+	"Print export default Object.freeze": {
+		"prefix": "export default Object.freeze",
+		"body": [
+			"export default Object.freeze({",
+			"\t${1}",
+			"})"
+		],
+		"description": "export default Object.freeze({})"
+	},
+	"Print export default json": {
+		"prefix": "export default json",
+		"body": [
+			"export default {",
+			"\t${1}",
+			"}",
+			""
+		],
+		"description": "const date = new Date()"
+	},
+	"Print export default new": {
+		"prefix": "export default new",
+		"body": [
+			"export default new ${1:Object}(${2})${3}"
+		],
+		"description": "export default new Object()"
+	},
+	"Print export const": {
+		"prefix": "export const",
+		"body": [
+			"export const ${1:NAME} = \"${1:NAME}\""
+		],
+		"description": "export const NAME = NAME"
+	},
+	"Print export const object": {
+		"prefix": "export const object",
+		"body": [
+			"export const ${1:NAME} = {",
+			"\t${2}",	
+			"}"
+		],
+		"description": "export const NAME = {}"
+	},
+	"Print this same argument": {
+		"prefix": "this same as",
+		"body": [
+			"this.${1} = ${1}${2}"
+		],
+		"description": "this.X = X"
+	},
+	"Print builder method": {
+		"prefix": "builder method",
+		"body": [
+			"${1:name} () {",
+			"\t${2}",
+			"\treturn this",
+			"}"
+		],
+		"description": "name() {return this}"
+	},
+	"Print name function": {
+		"prefix": ["name function"],
+		"body": [
+			"${1:name} (${2}) {",
+			"\t${3}",
+			"}",
+		],
+		"description": "value => true"
+	},
+	"Print arrow function": {
+		"prefix": ["arrow function", "=>", "()=>"],
+		"body": [
+			"(${2}) => {",
+			"\t${3}",
+			"}"
+		],
+		"description": "() => {}"
+	},
+	"Print arrow function minimalist": {
+		"prefix": ["arrow function minimalist", "=>"],
+		"body": [
+			"${2:value} => ${3:true}"
+		],
+		"description": "value => true"
+	},
+	"Print arrow function simple": {
+		"prefix": ["arrow function simple", "=>"],
+		"body": [
+			"${1:value} => {\n\t${3}\n}"
+		],
+		"description": "value => {}"
+	},
+	"Print arrow function return": {
+		"prefix": ["arrow function return", "=>"],
+		"body": [
+			"${1:value} => {\n\t${2}\n\treturn ${3}\n}"
+		],
+		"description": "value => {return}"
+	},
+	"Print full arrow function": {
+		"prefix": ["arrow function full", "=>", "()=>"],
+		"body": [
+			"${1:;}(${2:value}, ${3:index}, ${4:array}) => {",
+			"\t${5}",
+			"}"
+		],
+		"description": "(value, index, array) => {}"
+	},
+	"Print template literals": {
+		"prefix": [ "template literals", "template strings", "`${ " ],
+		"body": [
+			"`${2}${${1:argument}}${3}`"
+		],
+		"description": "`${argument}`"
+	},
+	"Print instanceof Array": {
+		"prefix": "instanceof Array",
+		"body": [
+			"${1:data} instanceof Array"
+		],
+		"description": "data instanceof Array"
+	},
+	"Print autorun jscode": {
+		"prefix": ["autorun code", "()()"],
+		"body": [
+			"${1:;}((${2}) => {",
+			"\t${3}",
+			"})()"
+		],
+		"description": ";(() => {})()"
+	},
+}
